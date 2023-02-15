@@ -31,7 +31,7 @@ namespace CaesarEncryption
                 {
                     if (TextNormal[i] == alphabet[j])
                     {
-                        if (j+adim > 25)
+                        if (j + adim > 25)
                         {
                             int a = (j + adim) - 25;
                             cipher = cipher + alphabet[a];
@@ -39,7 +39,7 @@ namespace CaesarEncryption
                         }
                         else
                         {
-                            cipher = cipher + alphabet[j+adim];
+                            cipher = cipher + alphabet[j + adim];
                         }
                     }
                 }
@@ -52,7 +52,35 @@ namespace CaesarEncryption
 
         private void textBoxCount_TextChanged(object sender, EventArgs e)
         {
-            adim = Convert.ToInt32(textBoxCount.Text)-1;
+            adim = Convert.ToInt32(textBoxCount.Text) - 1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            TextNormal = textBox2.Text.ToCharArray();
+            for (int i = 0; i < TextNormal.Length; i++)
+            {
+                for (int j = 0; j < alphabet.Length; j++)
+                {
+                    if (TextNormal[i] == alphabet[j])
+                    {
+                        if (j - adim < 0)
+                        {
+                            int a = 25 + (j - adim);
+                            cipher = cipher + alphabet[a];
+                        }
+                        else
+                        {
+                            cipher = cipher + alphabet[j - adim];
+                        }
+                    }
+                }
+            }
+
+            textBox1.Text = cipher;
+            cipher = "";
+
         }
     }
 }
