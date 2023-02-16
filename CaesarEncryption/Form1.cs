@@ -17,7 +17,7 @@ namespace CaesarEncryption
             InitializeComponent();
         }
         char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-        char[] alert = " ONLY UPPER CASE ".ToCharArray();
+        char[] alert = "   ONLY UPPER CASE   ".ToCharArray();
         char[] TextNormal;
         String cipher;
         int adim = 2;
@@ -98,10 +98,6 @@ namespace CaesarEncryption
             label4.Text = string.Join("", alert);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
